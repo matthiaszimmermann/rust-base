@@ -19,5 +19,9 @@ fn bench_user_deserialization(c: &mut Criterion) {
     });
 }
 
-criterion_group!(benches, bench_user_serialization, bench_user_deserialization);
+criterion_group!(
+    benches,
+    bench_user_serialization,
+    bench_user_deserialization
+);
 criterion_main!(benches);

@@ -18,7 +18,8 @@ fn main() {
     let json_array = serde_json::to_string(&users).expect("Array serialization failed");
     println!("Serialized array: {}", json_array);
 
-    let deserialized_users: Vec<User> = serde_json::from_str(&json_array).expect("Array deserialization failed");
+    let deserialized_users: Vec<User> =
+        serde_json::from_str(&json_array).expect("Array deserialization failed");
     println!("Deserialized array: {:?}", deserialized_users);
 
     // Example 3: Partial deserialization
@@ -26,6 +27,7 @@ fn main() {
         "id": 4,
         "name": "David"
     });
-    let partial_user: User = serde_json::from_value(partial_json).expect("Partial deserialization failed");
+    let partial_user: User =
+        serde_json::from_value(partial_json).expect("Partial deserialization failed");
     println!("Partially deserialized user: {:?}", partial_user);
 }

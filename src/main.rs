@@ -3,7 +3,7 @@ use std::env;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    
+
     match args.as_slice() {
         // serialization: ./program <id> <name> <email>
         [_, id, name, email] => {
@@ -14,22 +14,20 @@ fn main() {
                     std::process::exit(1);
                 }
             };
-            
+
             let user = User::new(user_id, name, email);
             match user.to_json() {
                 Ok(json) => println!("{}", json),
                 Err(e) => eprintln!("Serialization error: {}", e),
             }
-        },
-        
+        }
+
         // deserialization: ./program <json-string>
-        [_, json] => {
-            match User::from_json(json) {
-                Ok(user) => println!("{} \"{}\" \"{}\"", user.id, user.name, user.email),
-                Err(e) => eprintln!("Deserialization error: {}", e),
-            }
+        [_, json] => match User::from_json(json) {
+            Ok(user) => println!("{} \"{}\" \"{}\"", user.id, user.name, user.email),
+            Err(e) => eprintln!("Deserialization error: {}", e),
         },
-        
+
         // Invalid arguments
         _ => {
             eprintln!("Usage:");
