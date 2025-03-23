@@ -20,6 +20,28 @@ code rust-base
 
 Once the dev container is built and running, you can use the integrated terminal in VS Code to run Rust commands.
 
+### Formatting
+The first 2 commands show checking and fixing formatting for a single file.
+The reminder how to check/fix the full code base.
+`cargo fmt -- --check` corresponds to the Github action for the CI pipeline.
+
+```bash
+rustfmt --check src/main.rs
+rustfmt src/main.rs
+
+cargo fmt -- --check
+cargo fmt --
+```
+
+### Linting
+The last command below corresponds to the Github action for the CI pipeline.
+s
+```bash
+cargo clippy --file=src/main.rs
+cargo clippy -- --no-deps
+cargo clippy --all-targets --all-features -- -D warnings
+```
+
 ### Running Tests
 
 To run all tests:

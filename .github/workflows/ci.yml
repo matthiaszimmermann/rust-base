@@ -9,24 +9,66 @@ on:
     branches:
       - main
 
+env:
+  CARGO_TERM_COLOR: always
+
 jobs:
-  build_and_test:
-    name: Build and Test on Rust
+  check:
+    name: Build and Test
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        rust: [stable, beta, nightly]
-
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Install Rust Toolchain
-        run: rustup update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
-
-      - name: Build Project
+      # checkout code
+      - uses: actions/checkout@v4
+      # setup rust toolchain
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      # cache dependencies and artifacts
+      - uses: Swatinem/rust-cache@v2
+      # build the project
+      - name: Build
         run: cargo build --verbose
-
+      # run tests
       - name: Run Tests
         run: cargo test --verbose
+
+  formatter:
+    name: Fmt
+    runs-on: ubuntu-latest
+    steps:
+      # checkout code
+      - uses: actions/checkout@v4
+      # setup rust toolchain
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+          components: rustfmt
+      # run formatter in check mode
+      - uses: actions-rs/cargo@v1
+        with:
+          command: fmt
+          args: --all -- --check
+
+  linter:
+    name: Clippy
+    runs-on: ubuntu-latest
+    steps:
+      # checkout code
+      - uses: actions/checkout@v4
+      # setup rust toolchain
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+          components: clippy
+      # cache dependencies and artifacts
+      - uses: Swatinem/rust-cache@v2
+      - uses: actions-rs/cargo@v1
+        with:
+          command: clippy
+          args: -- -D warnings
