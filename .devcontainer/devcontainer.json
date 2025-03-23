@@ -9,9 +9,10 @@
             "extensions": [
                 "rust-lang.rust-analyzer",
                 "vadimcn.vscode-lldb",
-                "serayuzgur.crates",
+                "fill-labs.dependi",
                 "swellaby.vscode-rust-test-adapter",
-                "streetsidesoftware.code-spell-checker"
+                "streetsidesoftware.code-spell-checker",
+                "ms-vscode.live-server"
             ]
         }
     },

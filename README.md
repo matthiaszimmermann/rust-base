@@ -59,6 +59,10 @@ cargo run --example serde_example
 cargo bench
 ```
 
+The main report file is located at `./target/criterion/report/index.html`.
+See http://localhost:3000/target/criterion/report/ for the rendered report.
+
+
 ### Build and Run the Executable
 
 1. Build the main executable
