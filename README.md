@@ -1,6 +1,6 @@
-# Rust Development Base Repository
+# Rust Base Repository
 
-A Rust development environment with VS Code Dev Containers, featuring Serde for JSON serialization/deserialization.
+Initial Rust project setup with Devcontainers, CI pipeline and the Serde library.
 
 ## Setup
 
