@@ -5,16 +5,15 @@ Initial Rust project setup with Devcontainers, CI pipeline and the Serde library
 ## Setup
 
 1. Install [Docker](https://www.docker.com/get-started) and [VS Code](https://code.visualstudio.com/)
-2. Install the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension in VS Code
 3. Clone this repository: 
 ```bash
 git clone https://github.com/matthiaszimmermann/rust-base.git
 ```
-4. Open the project in VS Code:
+3. Open the project in VS Code:
 ```bash
 code rust-base
 ```
-5. When prompted, click "Reopen in Container"
+4. When prompted, click "Reopen in Container"
 
 ## Usage
 
@@ -40,6 +39,13 @@ s
 cargo clippy --file=src/main.rs
 cargo clippy -- --no-deps
 cargo clippy --all-targets --all-features -- -D warnings
+```
+
+### Resetting State
+
+To run all tests:
+```bash
+cargo clean
 ```
 
 ### Running Tests
