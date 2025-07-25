@@ -50,3 +50,9 @@ http://localhost:65167/p03_guessing_game/
 
 Your port might differ from the example above. Check the "PORTS" tab of VS Code for the likely port.
 
+
+## Run the Guessing Game
+
+```bash
+cargo run
+```
