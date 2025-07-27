@@ -52,6 +52,28 @@ let result = loop {
 
 Variable `result` has value 20;
 
+### Generalization: Blocks as Expressions
+
+Rust’s blocks more than just scopes or statement groups — they are expressions producing values.
+
+Blocks consists of zero or more statements followed optionally by a final expression (called the "tail expression") without a semicolon.
+The tail expression’s value becomes the value of the whole block.
+
+- If the last element in the block is an expression without a trailing semicolon, that expression’s value and type is the value and type of the block expression.
+
+- If the block ends with a statement (which usually ends with a semicolon) or has no expression, then the block’s value is () (the unit type).
+
+- This applies recursively: since blocks themselves are expressions, a block can end with another block expression, whose value then defines the outer block value.
+
+```rust
+let x = {
+    let a = 10;    // statement (ends with ;)
+    let b = 20;    // another statement
+    a + b          // final expression, the block's value
+};
+println!("{}", x); // prints 30
+```
+
 ### Loops with Labels
 
 ```rust

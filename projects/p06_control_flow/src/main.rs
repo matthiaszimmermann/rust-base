@@ -26,6 +26,7 @@ fn if_expressions() {
     }
 
     // conditional assignment, no ternary operator ? in rust
+    // last expression (no trailing semicolon) in if arm is taken as return value of the if statement
     let condition = true;
     let number = if condition { 5 } else { 6 };
     // escaping for {  is {{
@@ -40,7 +41,8 @@ fn loops() {
         println!("count: {count}");
         if count >= 2 {
             println!("breaking loop");
-            break;
+            // omitting the semicolon only works when break/continue is the last expression in the block
+            break
         }
         count += 1;
     }
@@ -49,8 +51,8 @@ fn loops() {
     count = 0;
     let result = loop {
         if count == 10 {
-            // the value after "break" is the value returned by the loop { }
-            break 2 * count;
+            // the expression after "break" defines the value returned by the block { }
+            break 2 * count
         }
         count += 1;
     };

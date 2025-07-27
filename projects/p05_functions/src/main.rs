@@ -17,15 +17,19 @@ fn some_function(x: u32, y:u16) {
 }
 
 fn a_plus_b(a: u16, b:u16) -> u16 {
-    return a + b;
+    // the last expression in a function is used as the functions return value
+    // important: make sure to omit the trailing semicolon! 
+    // (otherwise it's a statement and not an expression)
+    a + b
+    // alterantively but less rustacean: return a + b;
 }
 
 fn inspect_type<T: 'static>(_: T) -> String {
     if TypeId::of::<T>() == TypeId::of::<u32>() {
-        return "It's a u32!".to_string();
+        "It's a u32!".to_string()
     } else if TypeId::of::<T>() == TypeId::of::<String>() {
-        return "It's a String!".to_string();
+        "It's a String!".to_string()
     } else {
-        return ("Some other type: ".to_owned() + type_name::<T>()).to_string();
+        ("Some other type: ".to_owned() + type_name::<T>()).to_string()
     }
 }
