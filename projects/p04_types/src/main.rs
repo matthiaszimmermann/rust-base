@@ -56,6 +56,15 @@ fn main() {
     println!("z: {z}");
     println!("heart_eyed_cat: {heart_eyed_cat}");
 
+    println!("\nspecial case None via Option<T>");
+    let a = Some(42);
+    let b: Option<i32> = None;
+    let b_option = None::<u16>;
+    println!("a: {a:?}");
+    println!("b: {b:?}");
+    println!("b_option: {b_option:?}");
+
+
     println!("\ntuples");
     let tup: (u8, char, f64) = (255, 'x', -0.43);
     let (u, c, f) = tup;

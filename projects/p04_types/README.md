@@ -1,6 +1,6 @@
 # Scalar and Compound Types 
 
-From [The Rust Programming Language](https://doc.rust-lang.org/book/ch03-02-data-types.html)
+From [The Rust Programming Language, Types](https://doc.rust-lang.org/book/ch03-02-data-types.html)
 
 ## Create the Project
 

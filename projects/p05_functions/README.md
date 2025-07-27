@@ -1,6 +1,6 @@
 # Functions
 
-From [The Rust Programming Language](https://doc.rust-lang.org/book/ch03-03-how-functions-work.html)
+From [The Rust Programming Language, Functions](https://doc.rust-lang.org/book/ch03-03-how-functions-work.html)
 
 ## Create the Project
 
