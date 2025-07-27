@@ -13,7 +13,7 @@ fn some_function(x: u32, y:u16) {
     // widening cast: into(), eg, u16 -> u32, does not need unwrap
     // narrowing cast: try_into
     let x16 :u16 =  x.try_into().unwrap();
-    println!("x + y: {}", a_plus_b(x16, y));
+    println!("x + y = {}", a_plus_b(x16, y));
 }
 
 fn a_plus_b(a: u16, b:u16) -> u16 {
