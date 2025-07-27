@@ -1,4 +1,4 @@
-use std::any::{Any, TypeId, type_name};
+use std::any::{TypeId, type_name};
 
 fn main() {
     println!("Hello, world!");
